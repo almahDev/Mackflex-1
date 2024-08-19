@@ -10,5 +10,11 @@
   },
   "ProgressiveDiscount": {
     "component": "ProgressiveDiscount"
+  },
+  "Headscript":{
+    "component": "Headscript"
+  },
+  "wpp-btn":{
+    "component": "WhatsappBTN"
   }
 }

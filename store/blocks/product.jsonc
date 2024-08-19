@@ -92,7 +92,8 @@
       "specificationGroupName": "Group",
       "specificationName": "On Sale",
       "visibleWhen": "True",
-      "displayValue": "SPECIFICATION_NAME"
+      "displayValue": "SPECIFICATION_NAME",
+      "blockClass": "testeESP"
     }
   },
   "flex-layout.col#stack": {
@@ -144,17 +145,39 @@
       "flex-layout.row#identifier-reviews",
       "product-price#product-details",
       "product-description",
+       "flex-layout.row#ProgressiveDiscount",
       "sku-selector",
       "flex-layout.row#quantity",
       "add-to-cart-button#pdp",
       "flex-layout.row#frete-gratis",
+      // "flex-layout.row#security-2",
       "availability-subscriber"
     ]
   },
+
+  // "flex-layout.row#security-2":{
+  //   "children": [
+  //    /* "sandbox#google",*/
+  //     "rich-text#googlereviews"
+  //   ],
+  //   "props": {
+  //     "preventHorizontalStretch": true,
+  //     "blockClass": "security__row"
+  //   }
+  // },
+
+  "rich-text#googlereviews": {
+    "props": {
+      "textAlignment": "CENTER",
+      "textPosition": "CENTER",
+      "text": "[![Google avaliações](/arquivos/selo-google.png 'Google')](https://encurtador.com.br/hkmQX)",
+      "blockClass": "security-selo"
+    }
+  },
   "flex-layout.row#quantity": {
     "children": [
-      "flex-layout.col#product-quantity",
-      "flex-layout.col#product-troca"
+      "flex-layout.col#product-quantity"
+     
     ],
     "props": {
       "blockClass": "block-quantity"
@@ -167,21 +190,21 @@
       "verticalAlign": "middle"
     }
   },
-  "flex-layout.col#product-troca": {
-    "children": ["image#troca"],
-    "props": {
-      "width": "50%",
-      "verticalAlign": "middle"
-    }
-  },
+  // "flex-layout.col#product-troca": {
+  //   "children": ["image#troca"],
+  //   "props": {
+  //     "width": "50%",
+  //     "verticalAlign": "middle"
+  //   }
+  // },
   "image#troca": {
     "props": {
-      "src": "assets/icons/primeira-troca.png",
+      "src": "assets/icons/selotroca.png",
       "blockClass": "primeira-troca"
     }
   },
   "flex-layout.row#frete-gratis": {
-    "children": ["image#frete-gratis"],
+    "children": ["image#frete-gratis", "rich-text#googlereviews",  "image#troca"],
     "props": {
       "blockClass": "frete-gratis",
       "horizontalAlign": "middle",
@@ -230,21 +253,22 @@
     }
   },
   "add-to-cart-button#pdp": {
-    "props": {
-      "text": "COMPRAR",
-      "blockClass": "btn-buy-pdp"
-    }
+   "props": {
+    "addToCartFeedback": "customEvent",
+    "customPixelEventId": "add-to-cart-button",
+    "text": "COMPRAR"
+  }
   },
   "flex-layout.col#relatedshelf": {
-    "children": ["recommendation-refresh#one", "recommendation-refresh#two"]
+    "children": [ "recommendation-refresh#two"]
   },
-  "recommendation-refresh#one": {
-    "props": {
-      "strategy": "SIMILAR_PRODUCTS",
-      "secondaryStrategy": "MOST_POPULAR"
-    },
-    "blocks": ["refresh-shelf"]
-  },
+  // "recommendation-refresh#one": {
+  //   "props": {
+  //     "strategy": "SIMILAR_PRODUCTS",
+  //     "secondaryStrategy": "MOST_POPULAR"
+  //   },
+  //   "blocks": ["refresh-shelf"]
+  // },
   "recommendation-refresh#two": {
     "props": {
       "strategy": "BEST_CHOICE",
@@ -266,21 +290,20 @@
     "children": ["flex-layout.col#shelfs"]
   },
   "flex-layout.col#shelfs": {
-    "children": ["shelf#related", "shelf#related2"]
+    "children": ["shelf#relatedBuy", "shelf#related2"]
   },
-  "shelf#related": {
+  "shelf#relatedBuy": {
     "blocks": ["product-summary.shelf#new-shelf"],
     "props": {
       "blockClass": "related--shelf",
       "recomendation": "buy",
-      "orderBy": "OrderByTopSaleDESC",
       "productList": {
         "maxItems": 10,
         "itemsPerPage": 4,
         "minItemsPerPage": 2,
         "scroll": "BY_PAGE",
         "arrows": true,
-        "titleText": "VOCÊ PODE GOSTAR DE"
+        "titleText": "Quem Comprou, Comprou Também"
       }
     }
   },
@@ -316,32 +339,32 @@
   },
   "ProgressiveDiscount#10": {
     "props": {
-      "value": 10,
+      "value": 5,
       "discountText": "3"
     }
   },
   "ProgressiveDiscount#20": {
     "props": {
-      "value": 20,
-      "discountText": "8"
+      "value": 10,
+      "discountText": "5"
     }
   },
   "ProgressiveDiscount#30": {
     "props": {
-      "value": 30,
-      "discountText": "10"
+      "value": 15,
+      "discountText": "7"
     }
   },
   "ProgressiveDiscount#40": {
     "props": {
-      "value": 40,
-      "discountText": "15"
+      "value": 20,
+      "discountText": "9"
     }
   },
   "ProgressiveDiscount#50": {
     "props": {
-      "value": 50,
-      "discountText": "17"
+      "value": 30,
+      "discountText": "12"
     }
   }
 }
